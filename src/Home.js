@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState } from "react";
 import logo from "./img/logo.png";
 import facebook from "./img/Facebook.png";
 import instagram from "./img/Instagram.png";
@@ -90,7 +90,32 @@ const Icons = styled.div`
   text-align: right;
 `;
 
+const Btn = styled.div`
+background: #43ABAE;
+cursor: pointer;
+height: 50px;
+width: 5vw;
+color: white;
+margin-left: 95vw;
+font-family: Tenda;
+border-radius: 10px 0 0 10px;
+border-top: 1px solid #000;
+border-left: 1px solid #000;
+border-bottom: 1px solid #000;
+padding: 3vh 0 0 3vh;
+box-shadow: -2px 2px 8px #B2B2B2;
+text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+`;
+
+
 function Home() {
+
+  const [content, setContent] = useState('<');
+
+  const handleClick = () => {
+    setContent(prevContent => (prevContent === '<' ? '>' : '<'));
+  };
+
   const isPC = useMediaQuery({ query: "(max-width:)" });
   return (
     <div>
@@ -103,11 +128,13 @@ function Home() {
             누구나 뉴-세대 답게
             <br />
             토-크 할 수 있어
-          </Title>
+          </Title>    
         </Header>
+        <Btn onClick={handleClick}>{content}</Btn>
         <Main>
           <Basic/>
           <Mz/>
+        
         </Main>
       </Wrapper>
       <Footer>
