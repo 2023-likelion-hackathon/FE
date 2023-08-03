@@ -9,8 +9,8 @@ import Basic from "./components/Basic";
 import Mz from "./components/Mz";
 
 const Wrapper = styled.div`
-  height: 65%;
-  margin-bottom: 20%;
+  height: 85vh;
+  margin-top:5vh;
 `;
 
 const Header = styled.div`
@@ -18,7 +18,6 @@ const Header = styled.div`
   height: 25vh;
   justify-content: center;
   align-items: center;
-  margin-top: 5%;
   font-family: Tenda;
 `;
 
@@ -35,24 +34,23 @@ const LogoImg = styled.img`
 const Main = styled.div`
   display: flex;
   justify-content : center;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
+  height: 60vh;
 `;
 
 const Footer = styled.div`
   width: 100%;
-  height: 15%;
+  height: 20vh;
   background-color: #fe8c12;
   color: #fff;
   font-family: Tenda;
-  position: relative;
-  transform: translateY(-100%);
   border-top: 1.5px solid black;
 `;
 
 const Nav = styled.div`
   width: 70vw;
-  height: 18vh;
+  height: 10vh;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -63,14 +61,14 @@ const NavMenu = styled.div`
   display: flex;
   width: 23vw;
   flex-wrap: wrap;
-  margin-top: 10px;
+  margin-top: 2vh;
   align-content: flex-start;
 `;
 
 const NavList = styled.li`
   margin-right: 20px;
   font-size: 0.9rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 2vh;
 `;
 
 const CopyRight = styled.div`
