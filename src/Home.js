@@ -38,7 +38,7 @@ const Main = styled.div`
   justify-content: center;
   align-items: flex-start;
   width: 100%;
-  margin-bottom: 2rem;
+  margin-bottom: 3vh;
 `;
 
 const Footer = styled.div`
@@ -78,7 +78,7 @@ const CopyRight = styled.div`
   justify-direction: center;
   align-items: center;
   font-size: 0.9rem;
-  margin-top: -0.5챗rem;
+  margin-top: -0.5rem;
 `;
 
 const CopyRightText = styled.p`
