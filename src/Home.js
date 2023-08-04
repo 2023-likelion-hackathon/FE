@@ -7,6 +7,8 @@ import { useMediaQuery } from "react-responsive";
 import { styled } from "styled-components";
 import Basic from "./components/Basic";
 import Mz from "./components/Mz";
+import arrowRight from "./img/arrow_right.png";
+import arrowLeft from "./img/arrow_left.png";
 
 const Wrapper = styled.div`
   min-height: calc(100vh - 15rem);
@@ -92,25 +94,34 @@ const Icons = styled.div`
 const Btn = styled.div`
   background: #43abae;
   cursor: pointer;
-  height: 50px;
-  width: 5vw;
+  height: 7vh;
+  width: 3.5vw;
   color: white;
-  margin-left: 95vw;
+  float: right;
   font-family: Tenda;
-  border-radius: 10px 0 0 10px;
+  border-radius: 15px 0 0 15px;
   border-top: 1px solid #000;
   border-left: 1px solid #000;
   border-bottom: 1px solid #000;
-  padding: 3vh 0 0 3vh;
   box-shadow: -2px 2px 8px #b2b2b2;
   text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Arrow = styled.img`
+  width: 50%;
+  height: 60%;
 `;
 
 function Home() {
-  const [content, setContent] = useState("<");
+  const [content, setContent] = useState("arrowLeft");
 
   const handleClick = () => {
-    setContent((prevContent) => (prevContent === "<" ? ">" : "<"));
+    setContent((prevContent) =>
+      prevContent === "arrowLeft" ? "arrowRight" : "arrowLeft"
+    );
   };
 
   const isPC = useMediaQuery({ query: "(max-width:)" });
@@ -127,7 +138,13 @@ function Home() {
             토-크 할 수 있어
           </Title>
         </Header>
-        <Btn onClick={handleClick}>{content}</Btn>
+        <Btn onClick={handleClick}>
+          {content === "arrowLeft" ? (
+            <Arrow src={arrowLeft} alt="arrowLeft" />
+          ) : (
+            <Arrow src={arrowRight} alt="arrowRight" />
+          )}
+        </Btn>
         <Main>
           <Basic />
           <Mz />
