@@ -38,7 +38,7 @@ const Main = styled.div`
   justify-content: center;
   align-items: flex-start;
   width: 100%;
-  margin-bottom: 2rem;
+  margin-bottom: 3vh;
 `;
 
 const Footer = styled.div`
