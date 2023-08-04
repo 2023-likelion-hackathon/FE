@@ -3,7 +3,7 @@ body {
   padding: 0;
   background-image: url("./img/dot.png"), url("./img/dot.png");
   background-size: 16%, 16%;
-  background-position: left top, right 80%;
+  background-position: left top, right 82%;
   background-repeat: no-repeat;
 }
 * {
