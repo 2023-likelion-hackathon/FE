@@ -11,7 +11,7 @@ import arrowRight from "./img/arrow_right.png";
 import arrowLeft from "./img/arrow_left.png";
 
 const Wrapper = styled.div`
-  min-height: calc(100vh - 12rem);
+  min-height: calc(100vh - 11rem);
   margin-top: 3rem;
 `;
 
@@ -38,11 +38,12 @@ const Main = styled.div`
   justify-content: center;
   align-items: flex-start;
   width: 100%;
+  margin-bottom: 2rem;
 `;
 
 const Footer = styled.div`
   width: 100%;
-  height: 9rem;
+  height: 8rem;
   background-color: #fe8c12;
   color: #fff;
   font-family: Tenda;
@@ -116,6 +117,12 @@ const Arrow = styled.img`
   height: 60%;
 `;
 
+const Line = styled.div`
+  margin: 0 auto;
+  width: 60%;
+  border-bottom: 1.5px solid black;
+`;
+
 function Home() {
   const [content, setContent] = useState("arrowLeft");
 
@@ -150,6 +157,7 @@ function Home() {
           <Basic />
           <Mz />
         </Main>
+        <Line></Line>
       </Wrapper>
       <Footer>
         <Nav>
