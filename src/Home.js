@@ -78,7 +78,7 @@ const CopyRight = styled.div`
   justify-direction: center;
   align-items: center;
   font-size: 0.9rem;
-  margin-top: -0.5챗rem;
+  margin-top: -0.5rem;
 `;
 
 const CopyRightText = styled.p`
