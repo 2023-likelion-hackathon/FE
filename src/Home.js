@@ -11,7 +11,7 @@ import arrowRight from "./img/arrow_right.png";
 import arrowLeft from "./img/arrow_left.png";
 
 const Wrapper = styled.div`
-  min-height: calc(100vh - 15rem);
+  min-height: calc(100vh - 12rem);
   margin-top: 3rem;
 `;
 
@@ -42,7 +42,7 @@ const Main = styled.div`
 
 const Footer = styled.div`
   width: 100%;
-  height: 12rem;
+  height: 9rem;
   background-color: #fe8c12;
   color: #fff;
   font-family: Tenda;
@@ -60,16 +60,16 @@ const Nav = styled.div`
 const NavMenu = styled.div`
   list-style: none;
   display: flex;
-  width: 23vw;
+  width: 20vw;
   flex-wrap: wrap;
   margin-top: 2vh;
   align-content: flex-start;
 `;
 
 const NavList = styled.li`
-  margin-right: 20px;
-  font-size: 0.9rem;
-  margin-bottom: 2vh;
+  margin-right: 1.5rem;
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
 `;
 
 const CopyRight = styled.div`
@@ -77,6 +77,7 @@ const CopyRight = styled.div`
   justify-direction: center;
   align-items: center;
   font-size: 0.9rem;
+  margin-top: -0.5챗rem;
 `;
 
 const CopyRightText = styled.p`
