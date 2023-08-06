@@ -13,24 +13,51 @@ import arrowLeft from "./img/arrow_left.png";
 const Wrapper = styled.div`
   min-height: calc(100vh - 11rem);
   margin-top: 3rem;
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    margin-top: 0;
+    min-height: calc(100vh - 8rem);
+  }
 `;
 
-const Header = styled.div`
+const Header = styled.header`
   display: flex;
   height: 25vh;
   justify-content: center;
   align-items: center;
   font-family: Tenda;
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    border-bottom: 1px solid black;
+    height: 8vh;
+    justify-content: space-between;
+    box-shadow: -2px 2px 8px #b2b2b2;
+  }
+`;
+
+const Inside = styled.div`
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: left;
+  }
 `;
 
 const Title = styled.div`
   font-size: 40px;
   text-align: center;
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    font-size: 30px;
+    margin-top: 0.7rem;
+  }
 `;
 
 const LogoImg = styled.img`
   max-height: 100%;
   margin-right: 20px;
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    max-height: 70%;
+    margin-left: 2rem;
+  }
 `;
 
 const Main = styled.div`
@@ -39,6 +66,9 @@ const Main = styled.div`
   align-items: flex-start;
   width: 100%;
   margin-bottom: 3vh;
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    margin-top: 3vh;
+  }
 `;
 
 const Footer = styled.div`
@@ -56,6 +86,10 @@ const Nav = styled.div`
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    width: 90%;
+    margin: 0 auto;
+  }
 `;
 
 const NavMenu = styled.div`
@@ -65,6 +99,9 @@ const NavMenu = styled.div`
   flex-wrap: wrap;
   margin-top: 2vh;
   align-content: flex-start;
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    width: 40vw;
+  }
 `;
 
 const NavList = styled.li`
@@ -110,6 +147,14 @@ const Btn = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    height: 8vh;
+    width: 8vh;
+    border-top: 0;
+    border-bottom: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
 `;
 
 const Arrow = styled.img`
@@ -124,6 +169,10 @@ const Line = styled.div`
 `;
 
 function Home() {
+  const isPC = useMediaQuery({ minWidth: 1024 });
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 });
+
   const [content, setContent] = useState("arrowLeft");
 
   const handleClick = () => {
@@ -132,32 +181,52 @@ function Home() {
     );
   };
 
-  const isPC = useMediaQuery({ query: "(max-width:)" });
   return (
     <div>
       <Wrapper>
-        <Header>
-          <LogoImg src={logo} alt="pc_logo" />
-          <Title>
-            뉴-렌지와 함께면
-            <br />
-            누구나 뉴-세대 답게
-            <br />
-            토-크 할 수 있어
-          </Title>
-        </Header>
-        <Btn onClick={handleClick}>
-          {content === "arrowLeft" ? (
-            <Arrow src={arrowLeft} alt="arrowLeft" />
-          ) : (
-            <Arrow src={arrowRight} alt="arrowRight" />
-          )}
-        </Btn>
+        {isPC && (
+          <Header>
+            <LogoImg src={logo} alt="pc_logo" />
+            <Title>
+              뉴-렌지와 함께면
+              <br />
+              누구나 뉴-세대 답게
+              <br />
+              토-크 할 수 있어
+            </Title>
+          </Header>
+        )}
+        {(isTablet || isMobile) && (
+          <Header>
+            <Inside>
+              <LogoImg src={logo} alt="pc_logo" />
+              <Title>MZero</Title>
+            </Inside>
+            <div>
+              <Btn onClick={handleClick}>
+                {content === "arrowLeft" ? (
+                  <Arrow src={arrowLeft} alt="arrowLeft" />
+                ) : (
+                  <Arrow src={arrowRight} alt="arrowRight" />
+                )}
+              </Btn>
+            </div>
+          </Header>
+        )}
+        {isPC && (
+          <Btn onClick={handleClick}>
+            {content === "arrowLeft" ? (
+              <Arrow src={arrowLeft} alt="arrowLeft" />
+            ) : (
+              <Arrow src={arrowRight} alt="arrowRight" />
+            )}
+          </Btn>
+        )}
         <Main>
           <Basic />
           <Mz />
         </Main>
-        <Line></Line>
+        {isPC && <Line></Line>}
       </Wrapper>
       <Footer>
         <Nav>
