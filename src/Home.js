@@ -5,10 +5,12 @@ import instagram from "./img/Instagram.png";
 import copyright from "./img/Copyright.png";
 import { useMediaQuery } from "react-responsive";
 import { styled } from "styled-components";
-import Basic from "./components/Basic";
-import Mz from "./components/Mz";
 import arrowRight from "./img/arrow_right.png";
 import arrowLeft from "./img/arrow_left.png";
+import Mz from "./components/Mz";
+import Basic from "./components/Basic";
+import Apptranslation from "./components/Apptranslation";
+
 
 const Wrapper = styled.div`
   min-height: calc(100vh - 11rem);
@@ -154,8 +156,8 @@ function Home() {
           )}
         </Btn>
         <Main>
-          <Basic />
-          <Mz />
+          <Basic/>
+          <Mz/>
         </Main>
         <Line></Line>
       </Wrapper>

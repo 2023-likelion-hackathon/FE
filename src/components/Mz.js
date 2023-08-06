@@ -51,7 +51,7 @@ const Btn = styled.div`
 function Mz() {
   return (
     <Container> 
-        <div className='headertitle'>표준어</div>
+        <div className='headertitle'>결과</div>
         <Main></Main>
         <Btn>복사하기</Btn>
     </Container>
