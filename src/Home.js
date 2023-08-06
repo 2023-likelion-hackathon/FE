@@ -75,6 +75,12 @@ const Main = styled.div`
   @media screen and (min-width: 768px) and (max-width: 1023px) {
     margin-top: 3vh;
   }
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5%;
+  }
 `;
 
 const Footer = styled.div`
@@ -251,7 +257,11 @@ function Home() {
             <Mz />
           </Main>
         )}
-        {isMobile && <div></div>}
+        {isMobile && (
+          <Main>
+            <Apptranslation/>
+          </Main>
+        )}
         {isPC && <Line></Line>}
       </Wrapper>
       <Footer>

@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import "../font/font.css";
+import Vector from '../img/Vector.png';
+import AppInput from "./AppInput";
+import AppOutput from './AppOutput';
 
 const Container = styled.div`
-    width: 80vw;
-    height: 50vh;
+    width: 90vw;
+    height: 40vh;
     background: white;
     border-radius: 19px;
     display: flex;
@@ -25,89 +28,82 @@ const Header = styled.div`
     align-items: center;
     display: flex;
     flex-direction: row;
-    font-size: 16px;
+    font-size: 25px;
     font-weight: 700;
     font-family: Tenda;
 `;
 
-const Main = styled.div`
-  border: none;
-  border-bottom: 1px solid #000;
-  border-top: 1px solid #000;
-  width: 100%;
-  height: 72%;
-  outline: none;
-  resize: none;
-  box-sizing: border-box;
-
-  .byte {
-    display: flex;
-    width: 98%;
-    height: 15%;
-    justify-content: flex-end;
-    align-items: flex-end;
-    font-size: 15px;
-    padding: 0 2% 0 0;
-  }
-`;
-
-const MainText = styled.textarea`
-  border: none;
-  width: 100%;
-  height: 80%;
-  outline: none;
-  resize: none;
-  box-sizing: border-box;
-  padding: 2% 2% 0 2%;
-
-  &::placeholder {
-    color: #dedede;
-    font-weight: 700;
-    font-size: 16px;
-    font-family: Tenda;
-  }
-`;
 
 const Btn = styled.div`
-  background: #fe8c12;
+  background: ${props => (props.isTranslated ? "#43ABAE" : "#fe8c12")};
   cursor: pointer;
   height: 14%;
-  padding: 2% 0 0 0;
+  padding: 4% 0 0 0;
   color: white;
   border-radius: 0 0 19px 0;
   margin: 0 0 0 70%;
   border-left: 1px solid #000;
+  font-size: 25px;
   text-align: center;
+  font-weight: 700;
   text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+  @media screen and (max-width: 768px) {
+    padding: 3% 0 0 0;
+  }
+`;
+
+const Arrow = styled.img`
+  width: 2%;
+  height: 23%;
+`;
+
+
+const Headertitle = styled.div`
+  flex:1;
+  text-align:center;
 `;
 
 
 function Apptranslation() {
-  let [inputCount, setInputCount] = useState(0);
+  let [isArrowClicked, setIsArrowClicked] = useState(false);
+  let [isTranslated, setIsTranslated] = useState(false);
 
-  const onInputHandler = (e) => {
-    setInputCount(e.target.value.length);
+  const toggleArrow = () => {
+    setIsArrowClicked(!isArrowClicked);
+  };
+
+  const onBtnClick = () => {
+    setIsTranslated(true); // 번역 상태를 true로 설정
   };
 
   return (
     <Container>
       <Header>
-        <div className="headertitle">뉴-세대 용어</div>
-        <div className="headertitle">표준어</div>
+      {isArrowClicked ? (
+          <>
+            <Headertitle>표준어</Headertitle>
+            <Arrow src={Vector} alt="vector" onClick={toggleArrow} />
+            <Headertitle>뉴-세대 용어</Headertitle>
+          </>
+        ) : (
+          <>
+            <Headertitle>뉴-세대 용어</Headertitle>
+            <Arrow src={Vector} alt="vector" onClick={toggleArrow} />
+            <Headertitle className="headertitle">표준어</Headertitle>
+          </>
+        )}
       </Header>
-      <Main>
-        <MainText
-          placeholder="번역할 내용을 입력하세요."
-          onChange={onInputHandler}
-          maxLength="500"
-          style={{ fontFamily: "Tenda" }}
-        />
-        <div className="byte">
-          <span>{inputCount}</span>
-          <span>/500 자</span>
-        </div>
-      </Main>
-      <Btn>번역하기</Btn>
+      {isTranslated ? (
+        <>
+          <AppOutput onTranslate={() => setIsTranslated(false)}/>
+          <Btn isTranslated={isTranslated} >복사하기</Btn>
+        </>
+      ) : (
+      <>
+        <AppInput />
+        <Btn isTranslated={isTranslated} onClick={onBtnClick}>번역하기</Btn>
+      </>
+      )}
     </Container>
   );
 }

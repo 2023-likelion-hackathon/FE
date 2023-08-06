@@ -16,6 +16,11 @@ const Container = styled.div`
     font-weight: 700;
     font-family: Tenda;
 
+    @media screen and (min-width: 768px) and (max-width: 1023px) {
+      width: 40vw;
+      height: 30vw;
+    }
+
     .headertitle{
         height: 14%;
         padding: 2% 0 0 3%;

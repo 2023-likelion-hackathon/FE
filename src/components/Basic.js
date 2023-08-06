@@ -16,6 +16,11 @@ const Container = styled.div`
     font-size: 16px;
     font-weight: 700;
     font-family: Tenda;
+
+    @media screen and (min-width: 768px) and (max-width: 1023px) {
+      width: 40vw;
+      height: 30vw;
+    }
 `;
 
 const Main = styled.div`
@@ -42,12 +47,11 @@ const Main = styled.div`
 
 const MainText = styled.textarea`
   border: none;
-  width: 100%;
-  height: 80%;
+  height: 100%;
   outline: none;
+  width: 100%;
   resize: none;
   box-sizing: border-box;
-  padding: 2% 2% 0 2%;
 
   &::placeholder {
     color: #dedede;
@@ -55,6 +59,18 @@ const MainText = styled.textarea`
     font-size: 16px;
     font-family: Tenda;
   }
+`;
+
+const MainDiv = styled.div`
+  border: none;
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-direction: row;
+  outline: none;
+  resize: none;
+  box-sizing: border-box;
+  padding: 2% 2% 0 2%;
 `;
 
 const Btn = styled.div`
@@ -75,6 +91,9 @@ const Dropdowntoggle = styled.div`
   height: 14%;
   border-right: 1px solid #000;
   padding: 2% 0 0 3%;
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    padding: 3% 0 0 3%;
+  }
 `;
 
 
@@ -82,18 +101,31 @@ const ListItemUl = styled.div`
   background: #fff;
   display: flex;
   flex-direction: column;
-  height: 30%;
+  height: 32%;
   width: 40%;
   position: absolute;
   margin:0;
-  padding: 1.5% 0 0 3%;
+  padding: 1% 0 0 3%;
   z-index: 1;
   border: 1px solid #000;
   border-radius: 0 0 8px 8px;
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    padding: 3% 0 0 3%;
+  }
 `;
 
 const ListItem = styled.div`
+  &:nth-child(2){
+    padding: 3% 0 0 0;
+  }
+`;
 
+const XBtn = styled.div`
+  color: #dedede;
+  &:hover{
+    color: black;
+    cursor: pointer;
+  }
 `;
 
 const Arrow = styled.img`
@@ -115,6 +147,7 @@ function Basic() {
     setMainText(""); // Btn을 누르면 MainText 값을 초기화
     setInputCount(0); // 글자 수도 초기화
   };
+
 
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState("뉴-세대 용어");
@@ -147,19 +180,22 @@ function Basic() {
             ))}
           </ListItemUl>
         )}
-        <MainText
-          placeholder="번역할 내용을 입력하세요."
-          value={mainText} // 값 설정
-          onChange={onInputHandler}
-          maxLength="500"
-          style={{ fontFamily: "Tenda" }}
-        />
+        <MainDiv>
+          <MainText
+            placeholder="번역할 내용을 입력하세요."
+            value={mainText} // 값 설정
+            onChange={onInputHandler}
+            maxLength="500"
+            style={{ fontFamily: "Tenda" }}
+          />
+          <XBtn onClick={onBtnClick}>X</XBtn>
+        </MainDiv>
         <div className="byte">
           <span>{inputCount}</span>
           <span>/500 자</span>
         </div>
       </Main>
-      <Btn onClick={onBtnClick}>번역하기</Btn>
+      <Btn>번역하기</Btn>
     </Container>
   );
 }
