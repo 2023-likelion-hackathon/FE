@@ -17,6 +17,10 @@ const Wrapper = styled.div`
     margin-top: 0;
     min-height: calc(100vh - 8rem);
   }
+  @media screen and (max-width: 768px) {
+    margin-top: 0;
+    min-height: calc(100vh - 20rem);
+  }
 `;
 
 const Header = styled.header`
@@ -25,7 +29,7 @@ const Header = styled.header`
   justify-content: center;
   align-items: center;
   font-family: Tenda;
-  @media screen and (min-width: 768px) and (max-width: 1023px) {
+  @media screen and (max-width: 1023px) {
     border-bottom: 1px solid black;
     height: 8vh;
     justify-content: space-between;
@@ -34,7 +38,7 @@ const Header = styled.header`
 `;
 
 const Inside = styled.div`
-  @media screen and (min-width: 768px) and (max-width: 1023px) {
+  @media screen and (max-width: 1023px) {
     display: flex;
     height: 100%;
     align-items: center;
@@ -45,7 +49,7 @@ const Inside = styled.div`
 const Title = styled.div`
   font-size: 40px;
   text-align: center;
-  @media screen and (min-width: 768px) and (max-width: 1023px) {
+  @media screen and (max-width: 1023px) {
     font-size: 30px;
     margin-top: 0.7rem;
   }
@@ -54,7 +58,7 @@ const Title = styled.div`
 const LogoImg = styled.img`
   max-height: 100%;
   margin-right: 20px;
-  @media screen and (min-width: 768px) and (max-width: 1023px) {
+  @media screen and (max-width: 1023px) {
     max-height: 70%;
     margin-left: 2rem;
   }
@@ -78,6 +82,11 @@ const Footer = styled.div`
   color: #fff;
   font-family: Tenda;
   border-top: 1.5px solid black;
+  @media screen and (max-width: 767px) {
+    background-color: #dedede;
+    border-top: 1.5px solid #b2b2b2;
+    height: 20rem;
+  }
 `;
 
 const Nav = styled.div`
@@ -86,9 +95,13 @@ const Nav = styled.div`
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  @media screen and (min-width: 768px) and (max-width: 1023px) {
+  @media screen and(min-width: 768px) and (max-width: 1023px) {
     width: 90%;
     margin: 0 auto;
+  }
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+    align-items: center;
   }
 `;
 
@@ -101,6 +114,9 @@ const NavMenu = styled.div`
   align-content: flex-start;
   @media screen and (min-width: 768px) and (max-width: 1023px) {
     width: 40vw;
+  }
+  @media screen and (max-width: 767px) {
+    width: 50vw;
   }
 `;
 
@@ -116,6 +132,8 @@ const CopyRight = styled.div`
   align-items: center;
   font-size: 0.9rem;
   margin-top: -0.5rem;
+  @media screen and (max-width: 767px) {
+  }
 `;
 
 const CopyRightText = styled.p`
@@ -128,6 +146,9 @@ const Icons = styled.div`
   display: flex;
   flex-direction: column;
   text-align: right;
+  @media screen and (max-width: 767px) {
+    text-align: center;
+  }
 `;
 
 const Btn = styled.div`
@@ -147,7 +168,7 @@ const Btn = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  @media screen and (min-width: 768px) and (max-width: 1023px) {
+  @media screen and (max-width: 1023px) {
     height: 8vh;
     width: 8vh;
     border-top: 0;
@@ -222,35 +243,72 @@ function Home() {
             )}
           </Btn>
         )}
-        <Main>
-          <Basic />
-          <Mz />
-        </Main>
+        {(isPC || isTablet) && (
+          <Main>
+            <Basic />
+            <Mz />
+          </Main>
+        )}
+        {isMobile && <div></div>}
         {isPC && <Line></Line>}
       </Wrapper>
       <Footer>
-        <Nav>
-          <NavMenu>
-            <NavList>이용약관</NavList>
-            <NavList>개인정보처리방침</NavList>
-            <NavList>책임의 한계와 법적고지</NavList>
-            <NavList>고객센터</NavList>
-            <NavList>의견제안</NavList>
-            <NavList>준수사항</NavList>
-            <NavList>품질개선</NavList>
-            <NavList>제휴 및 API 이용문의</NavList>
-          </NavMenu>
-          <Icons>
-            <div>
-              <img style={{ width: "23px" }} src={facebook} alt="facebook" />
-              <img style={{ width: "23px" }} src={instagram} alt="isntagram" />
-            </div>
-            <CopyRight>
-              <img src={copyright} alt="copyright" />
-              <CopyRightText>뭐하지 Corp</CopyRightText>
-            </CopyRight>
-          </Icons>
-        </Nav>
+        {(isPC || isTablet) && (
+          <Nav>
+            <NavMenu>
+              <NavList>이용약관</NavList>
+              <NavList>개인정보처리방침</NavList>
+              <NavList>책임의 한계와 법적고지</NavList>
+              <NavList>고객센터</NavList>
+              <NavList>의견제안</NavList>
+              <NavList>준수사항</NavList>
+              <NavList>품질개선</NavList>
+              <NavList>제휴 및 API 이용문의</NavList>
+            </NavMenu>
+            <Icons>
+              <div>
+                <img style={{ width: "23px" }} src={facebook} alt="facebook" />
+                <img
+                  style={{ width: "23px" }}
+                  src={instagram}
+                  alt="isntagram"
+                />
+              </div>
+              <CopyRight>
+                <img src={copyright} alt="copyright" />
+                <CopyRightText>뭐하지 Corp</CopyRightText>
+              </CopyRight>
+            </Icons>
+          </Nav>
+        )}
+        {isMobile && (
+          <Nav>
+            <Icons>
+              <div>
+                <img style={{ width: "23px" }} src={facebook} alt="facebook" />
+                <img
+                  style={{ width: "23px" }}
+                  src={instagram}
+                  alt="isntagram"
+                />
+              </div>
+              <CopyRight>
+                <img src={copyright} alt="copyright" />
+                <CopyRightText>뭐하지 Corp</CopyRightText>
+              </CopyRight>
+            </Icons>
+            <NavMenu>
+              <NavList>이용약관</NavList>
+              <NavList>개인정보처리방침</NavList>
+              <NavList>책임의 한계와 법적고지</NavList>
+              <NavList>고객센터</NavList>
+              <NavList>의견제안</NavList>
+              <NavList>준수사항</NavList>
+              <NavList>품질개선</NavList>
+              <NavList>제휴 및 API 이용문의</NavList>
+            </NavMenu>
+          </Nav>
+        )}
       </Footer>
     </div>
   );
