@@ -12,9 +12,9 @@ const Btn = styled.div`
   float: right;
   font-family: Tenda;
   border-radius: 15px 0 0 15px;
-  border-top: 1px solid #000;
-  border-left: 1px solid #000;
-  border-bottom: 1px solid #000;
+  border-top: 1.8px solid #000;
+  border-left: 1.8px solid #000;
+  border-bottom: 1.8px solid #000;
   box-shadow: -2px 2px 8px #b2b2b2;
   text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
   display: flex;

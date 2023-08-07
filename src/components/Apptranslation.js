@@ -12,7 +12,7 @@ const Container = styled.div`
     border-radius: 19px;
     display: flex;
     flex-direction: column;
-    border: 1px solid #000;
+    border: 1.8px solid #000;
     box-shadow: 2px 2px 8px #B2B2B2;
     font-size: 16px;
     font-weight: 700;
@@ -40,9 +40,9 @@ const Btn = styled.div`
   height: 14%;
   padding: 4% 0 0 0;
   color: white;
-  border-radius: 0 0 19px 0;
+  border-radius: 0 0 16px 0;
   margin: 0 0 0 70%;
-  border-left: 1px solid #000;
+  border-left: 1.8px solid #000;
   font-size: 25px;
   text-align: center;
   font-weight: 700;
@@ -82,7 +82,7 @@ function Apptranslation() {
       {isArrowClicked ? (
           <>
             <Headertitle>표준어</Headertitle>
-            <Arrow src={Vector} alt="vector" onClick={toggleArrow} />
+            <Arrow onClick={toggleArrow} />
             <Headertitle>뉴-세대 용어</Headertitle>
           </>
         ) : (
