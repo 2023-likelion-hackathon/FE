@@ -18,6 +18,8 @@ const Wrapper = styled.div`
   @media screen and (max-width: 768px) {
     margin-top: 0;
     min-height: calc(100vh - 35vh);
+    min-height: ${(props) =>
+      props.isTranslated ? "calc(100vh - 20vh)" : "calc(100vh - 35vh)"};
   }
 `;
 
@@ -50,6 +52,7 @@ function Home() {
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 });
 
   const [content, setContent] = useState("arrowLeft");
+  const [isTranslated, setIsTranslated] = useState(false);
 
   const handleClick = () => {
     setContent((prevContent) =>
@@ -59,7 +62,7 @@ function Home() {
 
   return (
     <div>
-      <Wrapper>
+      <Wrapper isTranslated={isTranslated}>
         <NavBar
           isPC={isPC}
           isMobile={isMobile}
@@ -76,12 +79,20 @@ function Home() {
         )}
         {isMobile && (
           <Main>
-            <Apptranslation />
+            <Apptranslation
+              isTranslated={isTranslated}
+              setIsTranslated={setIsTranslated}
+            />
           </Main>
         )}
         {isPC && <Line></Line>}
       </Wrapper>
-      <BottomBar isPC={isPC} isMobile={isMobile} isTablet={isTablet} />
+      <BottomBar
+        isPC={isPC}
+        isMobile={isMobile}
+        isTablet={isTablet}
+        isTranslated={isTranslated}
+      />
     </div>
   );
 }
