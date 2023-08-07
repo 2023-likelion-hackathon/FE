@@ -6,6 +6,7 @@ import AppInput from "./AppInput";
 import AppOutput from "./AppOutput";
 
 const Container = styled.div`
+<<<<<<< HEAD
   width: 90vw;
   height: 40vh;
   background: white;
@@ -17,6 +18,19 @@ const Container = styled.div`
   font-size: 16px;
   font-weight: 700;
   font-family: Tenda;
+=======
+    width: 90vw;
+    height: 40vh;
+    background: white;
+    border-radius: 19px;
+    display: flex;
+    flex-direction: column;
+    border: 1.8px solid #000;
+    box-shadow: 2px 2px 8px #B2B2B2;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: Tenda;
+>>>>>>> 57c2cde6addef8286d544ce14c7df869542eda40
 `;
 
 const Header = styled.div`
@@ -39,9 +53,9 @@ const Btn = styled.div`
   height: 14%;
   padding: 4% 0 0 0;
   color: white;
-  border-radius: 0 0 19px 0;
+  border-radius: 0 0 16px 0;
   margin: 0 0 0 70%;
-  border-left: 1px solid #000;
+  border-left: 1.8px solid #000;
   font-size: 25px;
   text-align: center;
   font-weight: 700;
@@ -78,7 +92,7 @@ function Apptranslation({ isTranslated, setIsTranslated }) {
         {isArrowClicked ? (
           <>
             <Headertitle>표준어</Headertitle>
-            <Arrow src={Vector} alt="vector" onClick={toggleArrow} />
+            <Arrow onClick={toggleArrow} />
             <Headertitle>뉴-세대 용어</Headertitle>
           </>
         ) : (

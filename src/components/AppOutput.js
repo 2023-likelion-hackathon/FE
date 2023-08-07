@@ -4,9 +4,8 @@ import "../font/font.css";
 
 const Main = styled.div`
   border: none;
-  border-bottom: 1px solid #000;
-  border-top: 1px solid #000;
-  border-left: 1px solid #000;
+  border-bottom: 1.8px solid #000;
+  border-top: 1.8px solid #000;
   width: 100%;
   height: 72%;
   outline: none;
@@ -61,7 +60,7 @@ const InputDiv = styled.div`
   flex-direction: column;
   resize: none;
   box-sizing: border-box;
-  border-bottom: 1px solid #000;
+  border-bottom: 1.8px solid #000;
 `;
 
 const OutputDiv = styled.div`

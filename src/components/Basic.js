@@ -11,7 +11,7 @@ const Container = styled.div`
     border-radius: 19px;
     display: flex;
     flex-direction: column;
-    border: 1px solid #000;
+    border: 1.8px solid #000;
     box-shadow: 2px 2px 8px #B2B2B2;
     font-size: 16px;
     font-weight: 700;
@@ -25,8 +25,8 @@ const Container = styled.div`
 
 const Main = styled.div`
   border: none;
-  border-bottom: 1px solid #000;
-  border-top: 1px solid #000;
+  border-bottom: 1.8px solid #000;
+  border-top: 1.8px solid #000;
   width: 100%;
   height: 72%;
   outline: none;
@@ -79,17 +79,18 @@ const Btn = styled.div`
   height: 14%;
   padding: 2% 0 0 0;
   color: white;
-  border-radius: 0 0 19px 0;
+  border-radius: 0 0 17px 0;
   margin: 0 0 0 70%;
-  border-left: 1px solid #000;
+  border-left: 1.8px solid #000;
   text-align: center;
   text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
 `;
 
 const Dropdowntoggle = styled.div`
+  cursor: pointer;
   width: 40%;
   height: 14%;
-  border-right: 1px solid #000;
+  border-right: 1.8px solid #000;
   padding: 2% 0 0 3%;
   @media screen and (min-width: 768px) and (max-width: 1023px) {
     padding: 3% 0 0 3%;
@@ -98,17 +99,18 @@ const Dropdowntoggle = styled.div`
 
 
 const ListItemUl = styled.div`
+  cursor: pointer;
   background: #fff;
   display: flex;
   flex-direction: column;
   height: 32%;
   width: 40%;
   position: absolute;
-  margin:0;
+  margin: 1px;
   padding: 1% 0 0 3%;
   z-index: 1;
-  border: 1px solid #000;
-  border-radius: 0 0 8px 8px;
+  border: 1.5px solid #000;
+  border-radius: 8px;
   @media screen and (min-width: 768px) and (max-width: 1023px) {
     padding: 3% 0 0 3%;
   }
