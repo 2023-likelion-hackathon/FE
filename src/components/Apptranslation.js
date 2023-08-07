@@ -1,11 +1,24 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import "../font/font.css";
-import Vector from '../img/Vector.png';
+import Vector from "../img/Vector.png";
 import AppInput from "./AppInput";
-import AppOutput from './AppOutput';
+import AppOutput from "./AppOutput";
 
 const Container = styled.div`
+<<<<<<< HEAD
+  width: 90vw;
+  height: 40vh;
+  background: white;
+  border-radius: 19px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #000;
+  box-shadow: 2px 2px 8px #b2b2b2;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: Tenda;
+=======
     width: 90vw;
     height: 40vh;
     background: white;
@@ -17,25 +30,25 @@ const Container = styled.div`
     font-size: 16px;
     font-weight: 700;
     font-family: Tenda;
+>>>>>>> 57c2cde6addef8286d544ce14c7df869542eda40
 `;
 
 const Header = styled.div`
-    width: 100%;
-    height: 14%;
-    display: flex;
-    border-radius: 19px 19px 0 0;
-    justify-content: space-evenly;
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    font-size: 25px;
-    font-weight: 700;
-    font-family: Tenda;
+  width: 100%;
+  height: 14%;
+  display: flex;
+  border-radius: 19px 19px 0 0;
+  justify-content: space-evenly;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  font-size: 25px;
+  font-weight: 700;
+  font-family: Tenda;
 `;
 
-
 const Btn = styled.div`
-  background: ${props => (props.isTranslated ? "#43ABAE" : "#fe8c12")};
+  background: ${(props) => (props.isTranslated ? "#43ABAE" : "#fe8c12")};
   cursor: pointer;
   height: 14%;
   padding: 4% 0 0 0;
@@ -57,16 +70,13 @@ const Arrow = styled.img`
   height: 23%;
 `;
 
-
 const Headertitle = styled.div`
-  flex:1;
-  text-align:center;
+  flex: 1;
+  text-align: center;
 `;
 
-
-function Apptranslation() {
-  let [isArrowClicked, setIsArrowClicked] = useState(false);
-  let [isTranslated, setIsTranslated] = useState(false);
+function Apptranslation({ isTranslated, setIsTranslated }) {
+  const [isArrowClicked, setIsArrowClicked] = useState(false);
 
   const toggleArrow = () => {
     setIsArrowClicked(!isArrowClicked);
@@ -79,7 +89,7 @@ function Apptranslation() {
   return (
     <Container>
       <Header>
-      {isArrowClicked ? (
+        {isArrowClicked ? (
           <>
             <Headertitle>표준어</Headertitle>
             <Arrow onClick={toggleArrow} />
@@ -95,14 +105,16 @@ function Apptranslation() {
       </Header>
       {isTranslated ? (
         <>
-          <AppOutput onTranslate={() => setIsTranslated(false)}/>
-          <Btn isTranslated={isTranslated} >복사하기</Btn>
+          <AppOutput onTranslate={() => setIsTranslated(false)} />
+          <Btn isTranslated={isTranslated}>복사하기</Btn>
         </>
       ) : (
-      <>
-        <AppInput />
-        <Btn isTranslated={isTranslated} onClick={onBtnClick}>번역하기</Btn>
-      </>
+        <>
+          <AppInput />
+          <Btn isTranslated={isTranslated} onClick={onBtnClick}>
+            번역하기
+          </Btn>{" "}
+        </>
       )}
     </Container>
   );

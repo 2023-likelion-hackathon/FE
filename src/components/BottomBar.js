@@ -15,7 +15,7 @@ const Footer = styled.div`
   @media screen and (max-width: 767px) {
     background-color: #dedede;
     border-top: 1.5px solid #b2b2b2;
-    height: 35vh;
+    height: ${(props) => (props.isTranslated ? "20vh" : "35vh")};
   }
 `;
 
@@ -28,10 +28,6 @@ const Nav = styled.div`
   @media screen and(min-width: 768px) and (max-width: 1023px) {
     width: 90%;
     margin: 0 auto;
-  }
-  @media screen and (max-width: 767px) {
-    display: block;
-    margin: 0;
   }
 `;
 
@@ -47,9 +43,10 @@ const NavMenu = styled.div`
   }
   @media screen and (max-width: 767px) {
     width: 70vw;
-    margin-left: 5vw;
     position: absolute;
     bottom: 0;
+    margin-left: 4vw;
+    margin-bottom: 2vh;
   }
 `;
 
@@ -80,15 +77,15 @@ const Icons = styled.div`
   flex-direction: column;
   text-align: right;
   @media screen and (max-width: 767px) {
-    text-align: center;
-    align-items: center;
+    align-items: ${(props) => (props.isTranslated ? "start" : "center")};
+    margin-left: ${(props) => (props.isTranslated ? "5vw" : "0")};
   }
 `;
 
-function BottomBar({ isPC, isMobile, isTablet }) {
+function BottomBar({ isPC, isMobile, isTablet, isTranslated }) {
   return (
     <div>
-      <Footer>
+      <Footer isTranslated={isTranslated}>
         {(isPC || isTablet) && (
           <Nav>
             <NavMenu>
@@ -119,7 +116,7 @@ function BottomBar({ isPC, isMobile, isTablet }) {
         )}
         {isMobile && (
           <div>
-            <Icons>
+            <Icons isTranslated={isTranslated}>
               <CopyRight>
                 <img src={copyright} alt="copyright" />
                 <CopyRightText>뭐하지 Corp</CopyRightText>
