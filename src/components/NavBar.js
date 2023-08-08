@@ -51,11 +51,11 @@ function NavBar({ isPC, isMobile, isTablet, handleClick, content }) {
         <Header>
           <LogoImg src={logo} alt="pc_logo" />
           <Title>
-            뉴-렌지와 함께면
+            엠제로와 함께면
             <br />
-            누구나 뉴-세대 답게
+            모르는 MZ 용어가 Zero
             <br />
-            토-크 할 수 있어
+            MZ와의 거리가 Zero
           </Title>
         </Header>
       )}
