@@ -53,11 +53,13 @@ function Home() {
 
   const [content, setContent] = useState("arrowLeft");
   const [isTranslated, setIsTranslated] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const handleClick = () => {
     setContent((prevContent) =>
       prevContent === "arrowLeft" ? "arrowRight" : "arrowLeft"
     );
+    setIsSidebarOpen(!isSidebarOpen);
   };
 
   return (
