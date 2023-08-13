@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import "../font/font.css";
 import Chevron from "../img/Chevron.png";
-import { result } from "../api/api";
 
 const Container = styled.div`
   width: 27vw;
@@ -136,9 +135,8 @@ const Arrow = styled.img`
   margin: 0 0 2% 15%;
 `;
 
-function Basic({ setIsTranslated }) {
+function Basic({ handleBtnClick, mainText, setMainText }) {
   let [inputCount, setInputCount] = useState(0);
-  let [mainText, setMainText] = useState("");
 
   const onInputHandler = (e) => {
     setInputCount(e.target.value.length);
@@ -162,13 +160,6 @@ function Basic({ setIsTranslated }) {
   const handleOptionClick = (option) => {
     setSelectedOption(option);
     setIsOpen(false);
-  };
-
-  const handleBtnClick = () => {
-    if (selectedOption == options[0]) {
-    } else if (selectedOption == options[1]) {
-    }
-    setIsTranslated(true);
   };
 
   return (

@@ -3,7 +3,7 @@ import SERVER from "./url";
 
 export const result = async (result) => {
   try {
-    const response = await axios.post(`${SERVER}/translate`);
+    const response = await axios.post(`${SERVER}/translate`, result);
     if (response.status == 200) {
       return response;
     }
