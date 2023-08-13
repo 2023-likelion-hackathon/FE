@@ -136,7 +136,7 @@ const Arrow = styled.img`
   margin: 0 0 2% 15%;
 `;
 
-function Basic() {
+function Basic({ setIsTranslated }) {
   let [inputCount, setInputCount] = useState(0);
   let [mainText, setMainText] = useState("");
 
@@ -168,6 +168,7 @@ function Basic() {
     if (selectedOption == options[0]) {
     } else if (selectedOption == options[1]) {
     }
+    setIsTranslated(true);
   };
 
   return (
@@ -201,7 +202,7 @@ function Basic() {
           <span>/500 자</span>
         </div>
       </Main>
-      <Btn>번역하기</Btn>
+      <Btn onClick={handleBtnClick}>번역하기</Btn>
     </Container>
   );
 }

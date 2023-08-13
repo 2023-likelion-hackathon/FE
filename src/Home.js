@@ -76,7 +76,7 @@ function Home() {
         {isPC && <Button handleClick={handleClick} content={content} />}
         {(isPC || isTablet) && (
           <Main>
-            <Basic />
+            <Basic setIsTranslated={setIsTranslated} />
             <Mz />
           </Main>
         )}
