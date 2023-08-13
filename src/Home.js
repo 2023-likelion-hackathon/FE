@@ -7,6 +7,7 @@ import Apptranslation from "./components/Apptranslation";
 import NavBar from "./components/NavBar";
 import Button from "./components/Button";
 import BottomBar from "./components/BottomBar";
+import Meaining from "./components/Meaning";
 
 const Wrapper = styled.div`
   min-height: calc(100vh - 3rem - 15vh);
@@ -88,6 +89,7 @@ function Home() {
           </Main>
         )}
         {isPC && <Line></Line>}
+        {isTranslated && <Meaining></Meaining>}
       </Wrapper>
       <BottomBar
         isPC={isPC}

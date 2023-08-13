@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import styles from "./sidebar.module.css";
+import styles from "./css/sidebar.module.css";
 
 const Sidebar = ({ width = 280, children }) => {
   const [isOpen, setOpen] = useState(false);
