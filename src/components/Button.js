@@ -20,6 +20,10 @@ const Btn = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  /* 데스크탑 버튼 마진 */
+  margin-top: 4vh;
+
   @media screen and (max-width: 1023px) {
     height: 8vh;
     width: 8vh;
@@ -27,6 +31,9 @@ const Btn = styled.div`
     border-bottom: 0;
     border-radius: 0;
     box-shadow: none;
+
+    // 태블릿
+    margin-top: 0vh;
   }
 `;
 
