@@ -13,3 +13,13 @@ export const result = async (result) => {
     }
   }
 };
+
+export const getSearchedData = async () => {
+  try {
+    const response = await axios.get(`${SERVER}/searched`);
+    return response.data;
+  } catch (error) {
+    console.error("에러", error);
+    throw error;
+  }
+};
