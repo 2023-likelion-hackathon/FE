@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 import { useState, useEffect } from "react";
-import { getSearchedData } from "../api/api";
+import { deleteData, getSearchedData } from "../api/api";
 
 const Container = styled.div`
   width: 18vw;
@@ -115,8 +115,13 @@ function Sidebar() {
     fetchData();
   }, [data]);
 
-  const handleDeleteAll = () => {
-    setData([]);
+  const handleDeleteAll = async () => {
+    try {
+      await deleteData();
+      setData([]);
+    } catch (error) {
+      console.error("실패", error);
+    }
   };
 
   return (

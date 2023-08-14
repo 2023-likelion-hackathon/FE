@@ -29,3 +29,17 @@ export const getSearchedData = async () => {
     throw error;
   }
 };
+
+export const deleteData = async () => {
+  try {
+    const response = await axios.get(`${SERVER}/clearSearched`);
+    return response.data;
+  } catch (error) {
+    const { status, data } = error.response;
+    if (status === 409) {
+      const errorMessage = data.message;
+      alert(errorMessage);
+    }
+    throw error;
+  }
+};
