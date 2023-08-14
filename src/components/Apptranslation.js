@@ -4,6 +4,7 @@ import "../font/font.css";
 import Vector from "../img/Vector.png";
 import AppInput from "./AppInput";
 import AppOutput from "./AppOutput";
+import ClipboardCopyButton from "./ClipBoardCopyBtn";
 
 const Container = styled.div`
   width: 90vw;

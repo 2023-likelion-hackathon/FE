@@ -123,7 +123,7 @@ function Home() {
               mainText={mainText}
               setMainText={setMainText}
             />
-            <Mz translatedWord={resultWord.translatedWord}/>
+            <Mz resultWord={resultWord}/>
           </Main>
         )}
 
