@@ -10,7 +10,7 @@ import BottomBar from "./components/BottomBar";
 
 import Sidebar from "./components/Sidebar";
 
-import Meaining from "./components/Meaning";
+import Meaning from "./components/Meaning";
 import { result } from "./api/api";
 
 const Wrapper = styled.div`
@@ -77,7 +77,7 @@ function Home() {
   const [isTranslated, setIsTranslated] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  const [mainText, setMainText] = useState("무슨 129");
+  const [mainText, setMainText] = useState("");
   const [resultWord, setResultWord] = useState({});
 
   const handleClick = () => {
@@ -122,9 +122,6 @@ function Home() {
               handleBtnClick={handleBtnClick}
               mainText={mainText}
               setMainText={setMainText}
-              onBtnClick={onBtnClick}
-              inputCount={inputCount}
-              setInputCount={setInputCount}
             />
             <Mz translatedWord={resultWord.translatedWord}/>
           </Main>
@@ -148,7 +145,7 @@ function Home() {
             <Sidebar />
           </ButtonContainer>
         )}
-        {isTranslated && <Meaining></Meaining>}
+        {isTranslated && <Meaning resultWord={resultWord}/>}
       </Wrapper>
       <BottomBar
         isPC={isPC}

@@ -11,8 +11,8 @@ const Container = styled.div`
   font-size: 16px;
   margin: 3vh 17vw 3vh 17vw;
   padding: 0 0 0 2vw;
-  font-weight: 700;
   font-family: Tenda;
+
 `;
 
 const CoinedWord = styled.div`
@@ -22,41 +22,54 @@ const CoinedWord = styled.div`
   justify-content: space-around;
   align-items: flex-start;
   font-size: 13px;
+  color: #B2B2B2;
   font-family: Tenda;
 `;
 
 const Subword = styled.div`
-  width: 50%;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-around;
-  font-size: 16px;
-  font-weight: 700;
-  font-family: Tenda;
+width: 50%;
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+align-items: flex-start;
+font-size: 13px;
+color: #B2B2B2;
+font-family: Tenda;
 `;
 
-const Main = styled.div`
+const MainFirst = styled.div`
   font-weight: 700;
   font-size: 16px;
+  color: #FE8C12;
+`;
+const MainSecond = styled.div`
+  font-weight: 700;
+  font-size: 16px;
+  color: #43ABAE;
+`;
+
+const Mean = styled.div`
+  font-weight: 600;
+  font-size: 14px;
+  color: black;
 `;
 
 
-function Meaining({resultWord}) {
+function Meaning({resultWord}) {
   return (
   <Container>
     <CoinedWord>
-      <Main>{resultWord.coinedWord}</Main>
-      <div>{resultWord.coinedWordMeaning}</div>
+      <MainFirst>{resultWord.coinedWord}</MainFirst>
+      <Mean>{resultWord.coinedWordMeaning}</Mean>
       <div>{resultWord.coinedWordExample}</div>
       <div>{resultWord.coinedWordUrl}</div>
     </CoinedWord>
     <Subword>
-      <Main>{resultWord.subWord}</Main>
-      <div>{resultWord.subWordMeaning}</div>
+      <MainSecond>{resultWord.subWord}</MainSecond>
+      <Mean>{resultWord.subWordMeaning}</Mean>
       <div>{resultWord.subWordExample}</div>
     </Subword>
   </Container>
   );
 }
-export default Meaining;
+export default Meaning;
