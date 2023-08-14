@@ -113,7 +113,7 @@ function Sidebar() {
     };
 
     fetchData();
-  }, []);
+  }, [data]);
 
   const handleDeleteAll = () => {
     setData([]);

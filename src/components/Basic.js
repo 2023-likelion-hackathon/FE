@@ -135,17 +135,17 @@ const Arrow = styled.img`
   margin: 0 0 2% 15%;
 `;
 
-function Basic({ handleBtnClick, mainText, setMainText }) {
-  let [inputCount, setInputCount] = useState(0);
-
+function Basic({
+  handleBtnClick,
+  mainText,
+  setMainText,
+  onBtnClick,
+  inputCount,
+  setInputCount,
+}) {
   const onInputHandler = (e) => {
     setInputCount(e.target.value.length);
     setMainText(e.target.value);
-  };
-
-  const onBtnClick = () => {
-    setMainText(""); // Btn을 누르면 MainText 값을 초기화
-    setInputCount(0); // 글자 수도 초기화
   };
 
   const [isOpen, setIsOpen] = useState(false);

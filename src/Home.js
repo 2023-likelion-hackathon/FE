@@ -78,6 +78,7 @@ function Home() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   let [mainText, setMainText] = useState("");
   const [translatedWord, setTranslatedWord] = useState("");
+  let [inputCount, setInputCount] = useState(0);
 
   const handleClick = () => {
     setContent((prevContent) =>
@@ -87,12 +88,24 @@ function Home() {
   };
 
   const handleBtnClick = async () => {
-    setIsTranslated(true);
     const inputString = mainText;
     const inputData = { inputString: inputString };
     const translatedResult = await result(inputData);
-    const translatedWord = translatedResult.data.translatedWord;
-    setTranslatedWord(translatedWord);
+    if (translatedResult && translatedResult.status == 200) {
+      setIsTranslated(true);
+      const translatedWord = translatedResult.data.translatedWord;
+      setTranslatedWord(translatedWord);
+    } else {
+      setIsTranslated(false);
+      setMainText("");
+      setInputCount(0);
+    }
+  };
+
+  const onBtnClick = () => {
+    setMainText(""); // Btn을 누르면 MainText 값을 초기화
+    setInputCount(0); // 글자 수도 초기화
+    setTranslatedWord("");
   };
 
   return (
@@ -120,6 +133,9 @@ function Home() {
               handleBtnClick={handleBtnClick}
               mainText={mainText}
               setMainText={setMainText}
+              onBtnClick={onBtnClick}
+              inputCount={inputCount}
+              setInputCount={setInputCount}
             />
             <Mz translatedWord={translatedWord} />
           </Main>
