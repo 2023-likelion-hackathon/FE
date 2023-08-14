@@ -61,7 +61,7 @@ const Headertitle = styled.div`
   text-align: center;
 `;
 
-function Apptranslation({ isTranslated, setIsTranslated }) {
+function Apptranslation({ isTranslated, setIsTranslated, handleBtnClick, mainText, setMainText }) {
   const [isArrowClicked, setIsArrowClicked] = useState(false);
 
   const toggleArrow = () => {

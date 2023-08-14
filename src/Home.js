@@ -56,8 +56,9 @@ function Home() {
   const [content, setContent] = useState("arrowLeft");
   const [isTranslated, setIsTranslated] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  let [mainText, setMainText] = useState("");
-  const [translatedWord, setTranslatedWord] = useState("");
+
+  const [mainText, setMainText] = useState("무슨 129");
+  const [resultWord, setResultWord] = useState({});
 
   const handleClick = () => {
     setContent((prevContent) =>
@@ -68,11 +69,12 @@ function Home() {
 
   const handleBtnClick = async () => {
     setIsTranslated(true);
-    const inputString = mainText;
-    const inputData = { inputString: inputString };
-    const translatedResult = await result(inputData);
-    const translatedWord = translatedResult.data.translatedWord;
-    setTranslatedWord(translatedWord);
+    const requestData = {
+      inputString: mainText // 사용자 입력값 사용
+    };
+    const response = await result(requestData);
+    setResultWord(response);
+    console.log(resultWord);
   };
 
   return (
@@ -86,6 +88,7 @@ function Home() {
           content={content}
         />
         {isPC && <Button handleClick={handleClick} content={content} />}
+
         {(isPC || isTablet) && (
           <Main>
             <Basic
@@ -93,19 +96,24 @@ function Home() {
               mainText={mainText}
               setMainText={setMainText}
             />
-            <Mz translatedWord={translatedWord} />
+            <Mz translatedWord={resultWord.translatedWord}/>
           </Main>
         )}
+
         {isMobile && (
           <Main>
             <Apptranslation
               isTranslated={isTranslated}
               setIsTranslated={setIsTranslated}
+              handleBtnClick={handleBtnClick}
+              mainText={mainText}
+              setMainText={setMainText}
             />
           </Main>
         )}
-        {isPC && <Line></Line>}
-        {isTranslated && <Meaining></Meaining>}
+
+        {isPC && <Line/>}
+        {isTranslated && <Meaining resultWord={resultWord}/>}
       </Wrapper>
       <BottomBar
         isPC={isPC}
