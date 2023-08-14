@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import "../font/font.css";
+import ClipboardCopyButton from "./ClipBoardCopyBtn";
 
 const Container = styled.div`
   width: 27vw;
@@ -39,25 +40,14 @@ const Main = styled.div`
   padding: 2% 2% 0 2%;
 `;
 
-const Btn = styled.div`
-  background: #43abae;
-  cursor: pointer;
-  height: 14%;
-  padding: 2% 0 0 0;
-  color: white;
-  border-radius: 0 0 17px 0;
-  margin: 0 0 0 70%;
-  border-left: 1.8px solid #000;
-  text-align: center;
-  text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
-`;
-
 function Mz({ translatedWord }) {
   return (
     <Container>
       <div className="headertitle">결과</div>
       <Main>{translatedWord}</Main>
-      <Btn>복사하기</Btn>
+      <ClipboardCopyButton copiedText={translatedWord}>
+        복사하기
+      </ClipboardCopyButton>
     </Container>
   );
 }
