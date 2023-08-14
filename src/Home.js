@@ -7,12 +7,16 @@ import Apptranslation from "./components/Apptranslation";
 import NavBar from "./components/NavBar";
 import Button from "./components/Button";
 import BottomBar from "./components/BottomBar";
+
+import Sidebar from "./components/Sidebar";
+
 import Meaining from "./components/Meaning";
 import { result } from "./api/api";
 
 const Wrapper = styled.div`
   min-height: calc(100vh - 3rem - 15vh);
   margin-top: 3rem;
+
   @media screen and (min-width: 768px) and (max-width: 1023px) {
     margin-top: 0;
     min-height: calc(100vh - 15vh);
@@ -46,6 +50,22 @@ const Line = styled.div`
   margin: 0 auto;
   width: 60%;
   border-bottom: 1.5px solid black;
+`;
+
+// 버튼 디자인 (사이드바 연동)
+const ButtonContainer = styled.div`
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: ${(props) => (props.isSidebarOpen ? "" : "translateX(18vw);")};
+  transition: all 0.5s ease-in-out;
+
+  @media screen and (max-width: 1023px) {
+    top: 8vh;
+    transform: ${(props) => (props.isSidebarOpen ? "" : "translateX(50vw);")};
+    transition: all 0.7s ease-in-out;
+  }
 `;
 
 function Home() {
@@ -85,7 +105,15 @@ function Home() {
           handleClick={handleClick}
           content={content}
         />
-        {isPC && <Button handleClick={handleClick} content={content} />}
+
+        {isPC && (
+          // 사이드바 추가
+          <ButtonContainer isSidebarOpen={isSidebarOpen}>
+            <Button handleClick={handleClick} content={content} />
+            <Sidebar />
+          </ButtonContainer>
+        )}
+
         {(isPC || isTablet) && (
           <Main>
             <Basic
@@ -105,6 +133,12 @@ function Home() {
           </Main>
         )}
         {isPC && <Line></Line>}
+        {(isTablet || isMobile) && (
+          // 사이드바 추가
+          <ButtonContainer isSidebarOpen={isSidebarOpen}>
+            <Sidebar />
+          </ButtonContainer>
+        )}
         {isTranslated && <Meaining></Meaining>}
       </Wrapper>
       <BottomBar
