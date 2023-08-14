@@ -1,26 +1,26 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import "../font/font.css";
-import Chevron from '../img/Chevron.png';
+import Chevron from "../img/Chevron.png";
 
 const Container = styled.div`
-    width: 27vw;
-    height: 17vw;
-    margin: 3vh 3vw 0px 3vw;
-    background: white;
-    border-radius: 19px;
-    display: flex;
-    flex-direction: column;
-    border: 1.8px solid #000;
-    box-shadow: 2px 2px 8px #B2B2B2;
-    font-size: 16px;
-    font-weight: 700;
-    font-family: Tenda;
+  width: 27vw;
+  height: 17vw;
+  margin: 3vh 3vw 0px 3vw;
+  background: white;
+  border-radius: 19px;
+  display: flex;
+  flex-direction: column;
+  border: 1.8px solid #000;
+  box-shadow: 2px 2px 8px #b2b2b2;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: Tenda;
 
-    @media screen and (min-width: 768px) and (max-width: 1023px) {
-      width: 40vw;
-      height: 30vw;
-    }
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    width: 40vw;
+    height: 30vw;
+  }
 `;
 
 const Main = styled.div`
@@ -32,7 +32,7 @@ const Main = styled.div`
   outline: none;
   resize: none;
   box-sizing: border-box;
-  position:  relative;
+  position: relative;
 
   .byte {
     display: flex;
@@ -97,7 +97,6 @@ const Dropdowntoggle = styled.div`
   }
 `;
 
-
 const ListItemUl = styled.div`
   cursor: pointer;
   background: #fff;
@@ -117,14 +116,14 @@ const ListItemUl = styled.div`
 `;
 
 const ListItem = styled.div`
-  &:nth-child(2){
+  &:nth-child(2) {
     padding: 3% 0 0 0;
   }
 `;
 
 const XBtn = styled.div`
   color: #dedede;
-  &:hover{
+  &:hover {
     color: black;
     cursor: pointer;
   }
@@ -136,9 +135,8 @@ const Arrow = styled.img`
   margin: 0 0 2% 15%;
 `;
 
-function Basic() {
+function Basic({ handleBtnClick, mainText, setMainText }) {
   let [inputCount, setInputCount] = useState(0);
-  let [mainText, setMainText] = useState("");
 
   const onInputHandler = (e) => {
     setInputCount(e.target.value.length);
@@ -149,7 +147,6 @@ function Basic() {
     setMainText(""); // Btn을 누르면 MainText 값을 초기화
     setInputCount(0); // 글자 수도 초기화
   };
-
 
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState("뉴-세대 용어");
@@ -165,13 +162,12 @@ function Basic() {
     setIsOpen(false);
   };
 
-
   return (
     <Container>
-        <Dropdowntoggle onClick={toggleDropdown}>
-          {selectedOption}
-          <Arrow src={Chevron} alt="chevron" />
-        </Dropdowntoggle>
+      <Dropdowntoggle onClick={toggleDropdown}>
+        {selectedOption}
+        <Arrow src={Chevron} alt="chevron" />
+      </Dropdowntoggle>
       <Main>
         {isOpen && (
           <ListItemUl>
@@ -197,7 +193,7 @@ function Basic() {
           <span>/500 자</span>
         </div>
       </Main>
-      <Btn>번역하기</Btn>
+      <Btn onClick={handleBtnClick}>번역하기</Btn>
     </Container>
   );
 }

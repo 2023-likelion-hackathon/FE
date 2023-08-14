@@ -7,7 +7,11 @@ import Apptranslation from "./components/Apptranslation";
 import NavBar from "./components/NavBar";
 import Button from "./components/Button";
 import BottomBar from "./components/BottomBar";
+
 import Sidebar from "./components/Sidebar";
+
+import Meaining from "./components/Meaning";
+import { result } from "./api/api";
 
 const Wrapper = styled.div`
   min-height: calc(100vh - 3rem - 15vh);
@@ -72,12 +76,23 @@ function Home() {
   const [content, setContent] = useState("arrowLeft");
   const [isTranslated, setIsTranslated] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  let [mainText, setMainText] = useState("");
+  const [translatedWord, setTranslatedWord] = useState("");
 
   const handleClick = () => {
     setContent((prevContent) =>
       prevContent === "arrowLeft" ? "arrowRight" : "arrowLeft"
     );
     setIsSidebarOpen(!isSidebarOpen);
+  };
+
+  const handleBtnClick = async () => {
+    setIsTranslated(true);
+    const inputString = mainText;
+    const inputData = { inputString: inputString };
+    const translatedResult = await result(inputData);
+    const translatedWord = translatedResult.data.translatedWord;
+    setTranslatedWord(translatedWord);
   };
 
   return (
@@ -101,8 +116,12 @@ function Home() {
 
         {(isPC || isTablet) && (
           <Main>
-            <Basic />
-            <Mz />
+            <Basic
+              handleBtnClick={handleBtnClick}
+              mainText={mainText}
+              setMainText={setMainText}
+            />
+            <Mz translatedWord={translatedWord} />
           </Main>
         )}
         {isMobile && (
@@ -114,13 +133,13 @@ function Home() {
           </Main>
         )}
         {isPC && <Line></Line>}
-
         {(isTablet || isMobile) && (
           // 사이드바 추가
           <ButtonContainer isSidebarOpen={isSidebarOpen}>
             <Sidebar />
           </ButtonContainer>
         )}
+        {isTranslated && <Meaining></Meaining>}
       </Wrapper>
       <BottomBar
         isPC={isPC}

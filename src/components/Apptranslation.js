@@ -6,7 +6,6 @@ import AppInput from "./AppInput";
 import AppOutput from "./AppOutput";
 
 const Container = styled.div`
-<<<<<<< HEAD
   width: 90vw;
   height: 40vh;
   background: white;
@@ -18,19 +17,6 @@ const Container = styled.div`
   font-size: 16px;
   font-weight: 700;
   font-family: Tenda;
-=======
-    width: 90vw;
-    height: 40vh;
-    background: white;
-    border-radius: 19px;
-    display: flex;
-    flex-direction: column;
-    border: 1.8px solid #000;
-    box-shadow: 2px 2px 8px #B2B2B2;
-    font-size: 16px;
-    font-weight: 700;
-    font-family: Tenda;
->>>>>>> 57c2cde6addef8286d544ce14c7df869542eda40
 `;
 
 const Header = styled.div`

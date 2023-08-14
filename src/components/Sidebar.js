@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 import { useState, useEffect } from "react";
 import { getSearchedData } from "../api";
+// import React, { useEffect, useRef, useState } from "react";
 
 const Container = styled.div`
   width: 18vw;
