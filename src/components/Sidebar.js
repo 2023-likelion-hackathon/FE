@@ -1,7 +1,6 @@
 import { styled } from "styled-components";
 import { useState, useEffect } from "react";
-import { getSearchedData } from "../api";
-// import React, { useEffect, useRef, useState } from "react";
+import { getSearchedData } from "../api/api";
 
 const Container = styled.div`
   width: 18vw;
@@ -107,6 +106,7 @@ function Sidebar() {
       try {
         const result = await getSearchedData();
         setData(result); // API에서 가져온 데이터로 상태 업데이트
+        console.log(result);
       } catch (error) {
         console.error("실패", error);
       }
