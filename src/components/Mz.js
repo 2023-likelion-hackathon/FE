@@ -40,13 +40,14 @@ const Main = styled.div`
   padding: 2% 2% 0 2%;
 `;
 
-function Mz({resultWord}) {
+function Mz({ resultWord }) {
   return (
     <Container>
       <div className="headertitle">결과</div>
       <Main>{resultWord.translatedWord}</Main>
       <ClipboardCopyButton copiedText={resultWord.translatedWord}>
         복사하기
+        {console.log(resultWord.translatedWord)};
       </ClipboardCopyButton>
     </Container>
   );

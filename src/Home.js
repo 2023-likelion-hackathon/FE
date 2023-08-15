@@ -93,7 +93,14 @@ function Home() {
       inputString: mainText,
     };
     const response = await result(requestData);
-    setResultWord(response);
+    if (response && response.status === 200) {
+      setIsTranslated(true);
+      setResultWord(response.data);
+    } else {
+      setIsTranslated(false);
+      setMainText("");
+      setInputCount(0);
+    }
   };
 
   useEffect(() => {
