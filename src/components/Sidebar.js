@@ -102,18 +102,23 @@ function Sidebar() {
   const [data, setData] = useState(initialData);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const result = await getSearchedData();
-        setData(result); // API에서 가져온 데이터로 상태 업데이트
-        console.log(result);
-      } catch (error) {
-        console.error("실패", error);
-      }
-    };
-
     fetchData();
+  }, []);
+
+  useEffect(() => {
+    if (data.length > 0) {
+      fetchData();
+    }
   }, [data]);
+
+  const fetchData = async () => {
+    try {
+      const result = await getSearchedData();
+      setData(result);
+    } catch (error) {
+      console.error("실패", error);
+    }
+  };
 
   const handleDeleteAll = async () => {
     try {
