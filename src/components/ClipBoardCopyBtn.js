@@ -15,9 +15,9 @@ const Btn = styled.div`
   text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
 `;
 
-function ClipboardCopyButton({ text }) {
+function ClipboardCopyButton({ copiedText }) {
   const handleCopyClick = () => {
-    clipboardCopy(text)
+    clipboardCopy(copiedText)
       .then(() => {
         alert("텍스트가 클립보드에 복사되었습니다.");
       })

@@ -62,10 +62,9 @@ const XBtn = styled.div`
 `;
 
 
-function AppInput() {
+function AppInput({mainText, setMainText}) {
   let [inputCount, setInputCount] = useState(0);
-  let [mainText, setMainText] = useState("");
-
+  
   const onInputHandler = (e) => {
     setInputCount(e.target.value.length);
     setMainText(e.target.value);

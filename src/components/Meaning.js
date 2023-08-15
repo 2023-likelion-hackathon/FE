@@ -13,10 +13,20 @@ const Container = styled.div`
   padding: 0 0 0 2vw;
   font-family: Tenda;
 
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    flex-direction: column;
+    margin: 3vh 5vw 3vh 5vw;
+  }
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+    margin: 3vh 5vw 3vh 5vw;
+  }
+
 `;
 
 const CoinedWord = styled.div`
   width: 50%;
+  
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -24,6 +34,15 @@ const CoinedWord = styled.div`
   font-size: 13px;
   color: #B2B2B2;
   font-family: Tenda;
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    width: 100%;
+    margin: 3vh 0 3vh 0;
+  }
+  @media screen and (max-width: 767px) {
+    width: 100%;
+    margin: 3vh 0 3vh 0;
+  }
 `;
 
 const Subword = styled.div`
@@ -35,17 +54,28 @@ align-items: flex-start;
 font-size: 13px;
 color: #B2B2B2;
 font-family: Tenda;
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  width: 100%;
+  margin: 3vh 0 3vh 0;
+}
+@media screen and (max-width: 767px) {
+  width: 100%;
+  margin: 3vh 0 3vh 0;
+}
 `;
 
 const MainFirst = styled.div`
   font-weight: 700;
   font-size: 16px;
   color: #FE8C12;
+  padding: 0 0 2vh 0;
 `;
 const MainSecond = styled.div`
   font-weight: 700;
   font-size: 16px;
   color: #43ABAE;
+  padding: 0 0 2vh 0;
 `;
 
 const Mean = styled.div`

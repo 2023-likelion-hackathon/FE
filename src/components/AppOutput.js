@@ -18,7 +18,7 @@ const Main = styled.div`
     height: 15%;
     justify-content: flex-end;
     align-items: flex-end;
-    font-size: 25px;
+    font-size: 20px;
     padding: 0 2% 0 0;
   }
 `;
@@ -29,13 +29,13 @@ const MainText = styled.textarea`
   height: 100%;
   outline: none;
   resize: none;
-  font-size: 25px;
+  font-size: 20px;
   box-sizing: border-box;
 
   &::placeholder {
     color: #dedede;
     font-weight: 700;
-    font-size: 25px;
+    font-size: 20px;
     font-family: Tenda;
   }
 `;
@@ -69,12 +69,14 @@ const OutputDiv = styled.div`
   height: 50%;
   resize: none;
   box-sizing: border-box;
+  padding: 2% 2% 0 2%;
+  font-size: 20px;
 `;
 
 
 const XBtn = styled.div`
   color: #dedede;
-  font-size: 25px;
+  font-size: 20px;
   &:hover{
     color: black;
     cursor: pointer;
@@ -82,9 +84,8 @@ const XBtn = styled.div`
 `;
 
 
-function AppOutput({ onTranslate }) {
-  let [inputCount, setInputCount] = useState(6);
-  let [mainText, setMainText] = useState("임의의 단어");
+function AppOutput({setIsTranslated, mainText, setMainText, resultWord, setResultWord}) {
+  let [inputCount, setInputCount] = useState(mainText.length);
 
   const onInputHandler = (e) => {
     setInputCount(e.target.value.length);
@@ -94,6 +95,8 @@ function AppOutput({ onTranslate }) {
   const onBtnClick = () => {
     setMainText(""); // Btn을 누르면 MainText 값을 초기화
     setInputCount(0); // 글자 수도 초기화
+    setResultWord({});
+    setIsTranslated(false);
   };
 
   return (
@@ -107,14 +110,14 @@ function AppOutput({ onTranslate }) {
               maxLength="500"
               style={{ fontFamily: "Tenda" }}
             />
-            <XBtn onClick={onTranslate}>X</XBtn>
+            <XBtn onClick={onBtnClick}>X</XBtn>
           </MainDiv>
           <div className="byte">
             <span>{inputCount}</span>
             <span>/500 자</span>
           </div>
         </InputDiv>
-        <OutputDiv></OutputDiv>
+        <OutputDiv>{resultWord.translatedWord}</OutputDiv>
       </Main>
   );
 }

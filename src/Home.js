@@ -78,7 +78,16 @@ function Home() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const [mainText, setMainText] = useState("");
-  const [resultWord, setResultWord] = useState({});
+  const [resultWord, setResultWord] = useState({
+    "coinedWord": "무슨 129",
+    "coinedWordMeaning": "무슨 129(또는 머선129): 무슨 일이고? 를 이상하게 만든 말이다.",
+    "coinedWordUrl": "",
+    "coinedWordExample": "엥 무슨 129?",
+    "subWord": "무슨 일이야",
+    "subWordMeaning": "",
+    "subWordExample": "",
+    "translatedWord": "무슨 일이야"
+});
 
   const handleClick = () => {
     setContent((prevContent) =>
@@ -122,6 +131,7 @@ function Home() {
               handleBtnClick={handleBtnClick}
               mainText={mainText}
               setMainText={setMainText}
+              setResultWord={setResultWord}
             />
             <Mz resultWord={resultWord}/>
           </Main>
@@ -135,6 +145,8 @@ function Home() {
               handleBtnClick={handleBtnClick}
               mainText={mainText}
               setMainText={setMainText}
+              resultWord={resultWord}
+              setResultWord={setResultWord}
             />
           </Main>
         )}

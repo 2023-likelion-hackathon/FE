@@ -35,21 +35,16 @@ const Header = styled.div`
 `;
 
 const Btn = styled.div`
-  background: ${(props) => (props.isTranslated ? "#43ABAE" : "#fe8c12")};
-  cursor: pointer;
-  height: 14%;
-  padding: 4% 0 0 0;
-  color: white;
-  border-radius: 0 0 16px 0;
-  margin: 0 0 0 70%;
-  border-left: 1.8px solid #000;
-  font-size: 25px;
-  text-align: center;
-  font-weight: 700;
-  text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
-  @media screen and (max-width: 768px) {
-    padding: 3% 0 0 0;
-  }
+cursor: pointer;
+background: #fe8c12;
+height: 14%;
+padding: 2% 0 0 0;
+color: white;
+border-radius: 0 0 17px 0;
+margin: 0 0 0 70%;
+border-left: 1.8px solid #000;
+text-align: center;
+text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
 `;
 
 const Arrow = styled.img`
@@ -62,7 +57,7 @@ const Headertitle = styled.div`
   text-align: center;
 `;
 
-function Apptranslation({ isTranslated, setIsTranslated, handleBtnClick, mainText, setMainText }) {
+function Apptranslation({ isTranslated, setIsTranslated, handleBtnClick, mainText, setMainText, resultWord, setResultWord}) {
   const [isArrowClicked, setIsArrowClicked] = useState(false);
 
   const toggleArrow = () => {
@@ -71,6 +66,7 @@ function Apptranslation({ isTranslated, setIsTranslated, handleBtnClick, mainTex
 
   const onBtnClick = () => {
     setIsTranslated(true); // 번역 상태를 true로 설정
+    handleBtnClick();
   };
 
   return (
@@ -92,15 +88,17 @@ function Apptranslation({ isTranslated, setIsTranslated, handleBtnClick, mainTex
       </Header>
       {isTranslated ? (
         <>
-          <AppOutput onTranslate={() => setIsTranslated(false)} />
-          <Btn isTranslated={isTranslated}>복사하기</Btn>
+          <AppOutput setIsTranslated={setIsTranslated} mainText={mainText} setMainText={setMainText} resultWord={resultWord} setResultWord={setResultWord} />
+          <ClipboardCopyButton copiedText={resultWord.translatedWord}>
+            복사하기
+          </ClipboardCopyButton>
         </>
       ) : (
         <>
-          <AppInput />
-          <Btn isTranslated={isTranslated} onClick={onBtnClick}>
+          <AppInput mainText={mainText} setMainText={setMainText}/>
+          <Btn onClick={onBtnClick}>
             번역하기
-          </Btn>{" "}
+          </Btn>
         </>
       )}
     </Container>

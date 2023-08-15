@@ -16,7 +16,6 @@ export const result = async (result) => {
         alert(errorMessage);
       }
     }
-    return null;
   }
 };
 
