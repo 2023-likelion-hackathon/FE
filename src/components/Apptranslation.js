@@ -65,7 +65,6 @@ function Apptranslation({ isTranslated, setIsTranslated, handleBtnClick, mainTex
   };
 
   const onBtnClick = () => {
-    setIsTranslated(true); // 번역 상태를 true로 설정
     handleBtnClick();
   };
 
