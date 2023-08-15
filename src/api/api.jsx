@@ -1,11 +1,17 @@
 import axios from "axios";
 import SERVER from "./url";
 
-export const result = async (result) => {
+export const result = async (data) => {
   try {
+<<<<<<< HEAD
+    const response = await axios.post(`${SERVER}/translate`, data);
+    if (response.status === 200) {
+      return response;
+=======
     const response = await axios.post(`${SERVER}/translate`, result);
     if (response.status == 200) {
       return response.data;
+>>>>>>> 9bbf0f62b3b72710178ea7186eb37c8d1f8ea3cf
     }
   } catch (error) {
     if (error.response) {

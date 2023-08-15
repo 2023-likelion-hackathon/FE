@@ -51,6 +51,8 @@ const Line = styled.div`
   width: 60%;
   border-bottom: 1.5px solid black;
 `;
+
+// 버튼 디자인 (사이드바 연동)
 const ButtonContainer = styled.div`
   display: flex;
   position: absolute;
@@ -77,6 +79,7 @@ function Home() {
 
   const [mainText, setMainText] = useState("");
   const [resultWord, setResultWord] = useState({});
+  let [inputCount, setInputCount] = useState(0);
 
   const handleClick = () => {
     setContent((prevContent) =>
@@ -86,13 +89,20 @@ function Home() {
   };
 
   const handleBtnClick = async () => {
-    setIsTranslated(true);
     const requestData = {
       inputString: mainText,
     };
     const response = await result(requestData);
-    setResultWord(response);
-    console.log(resultWord);
+    if (response && response.status === 200) {
+      setIsTranslated(true);
+      setResultWord(response);
+      console.log(resultWord);
+      console.log(response);
+    } else {
+      setIsTranslated(false);
+      setMainText("");
+      setInputCount(0);
+    }
   };
 
   return (
@@ -121,6 +131,8 @@ function Home() {
               mainText={mainText}
               setMainText={setMainText}
               setResultWord={setResultWord}
+              inputCount={inputCount}
+              setInputCount={setInputCount}
             />
             <Mz resultWord={resultWord} />
           </Main>
