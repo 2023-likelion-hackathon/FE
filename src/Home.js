@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
 import { styled } from "styled-components";
 import Mz from "./components/Mz";
@@ -92,8 +92,11 @@ function Home() {
     };
     const response = await result(requestData);
     setResultWord(response);
-    console.log(resultWord);
   };
+
+  useEffect(() => {
+    console.log(resultWord); // 상태가 업데이트될 때마다 실행
+  }, [resultWord]);
 
   return (
     <div>
