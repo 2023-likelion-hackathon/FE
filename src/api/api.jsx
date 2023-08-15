@@ -1,9 +1,8 @@
 import axios from "axios";
-import SERVER from "./url";
 
 export const result = async (data) => {
   try {
-    const response = await axios.post(`${SERVER}/translate`, data);
+    const response = await axios.post("/api/translate", data);
     if (response.status === 200) {
       return response;
     }
@@ -21,7 +20,7 @@ export const result = async (data) => {
 
 export const getSearchedData = async () => {
   try {
-    const response = await axios.get(`${SERVER}/searched`);
+    const response = await axios.get("/api/searched");
     return response.data;
   } catch (error) {
     console.error("에러", error);
@@ -31,7 +30,7 @@ export const getSearchedData = async () => {
 
 export const deleteData = async () => {
   try {
-    const response = await axios.get(`${SERVER}/clearSearched`);
+    const response = await axios.get("/api/clearSearched");
     return response.data;
   } catch (error) {
     const { status, data } = error.response;
