@@ -1,12 +1,11 @@
 import axios from "axios";
 import SERVER from "./url";
 
-export const result = async (result) => {
+export const result = async (data) => {
   try {
-    const response = await axios.post(`${SERVER}/translate`, result);
-    if (response.status == 200) {
-      alert("성공");
-      return response.data;
+    const response = await axios.post(`${SERVER}/translate`, data);
+    if (response.status === 200) {
+      return response;
     }
   } catch (error) {
     if (error.response) {
@@ -16,7 +15,7 @@ export const result = async (result) => {
         alert(errorMessage);
       }
     }
-    return null;
+    return {};
   }
 };
 
