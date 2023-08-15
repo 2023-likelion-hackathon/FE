@@ -111,9 +111,10 @@ function Sidebar() {
         console.error("실패", error);
       }
     };
-
+  
     fetchData();
-  }, [data]);
+  }, []);
+  
 
   const handleDeleteAll = async () => {
     try {
