@@ -67,7 +67,7 @@ const Delete = styled.p`
 `;
 
 const Mztext = styled.p`
-  font-size: 1.5rem;
+  font-size: 1rem;
   margin-top: 0;
   margin-bottom: 0;
 
@@ -85,10 +85,10 @@ const Xtext = styled.p`
   color: lightgray;
 
   @media screen and (max-width: 1023px) {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
   @media screen and (max-width: 767px) {
-    font-size: 0.8rem;
+    font-size: 0.6rem;
   }
 `;
 
