@@ -95,9 +95,7 @@ function Home() {
     const response = await result(requestData);
     if (response && response.status === 200) {
       setIsTranslated(true);
-      setResultWord(response);
-      console.log(resultWord);
-      console.log(response);
+      setResultWord(response.data);
     } else {
       setIsTranslated(false);
       setMainText("");
