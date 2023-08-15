@@ -51,8 +51,6 @@ const Line = styled.div`
   width: 60%;
   border-bottom: 1.5px solid black;
 `;
-
-// 버튼 디자인 (사이드바 연동)
 const ButtonContainer = styled.div`
   display: flex;
   position: absolute;
@@ -90,7 +88,7 @@ function Home() {
   const handleBtnClick = async () => {
     setIsTranslated(true);
     const requestData = {
-      inputString: mainText // 사용자 입력값 사용
+      inputString: mainText,
     };
     const response = await result(requestData);
     setResultWord(response);
@@ -124,7 +122,7 @@ function Home() {
               setMainText={setMainText}
               setResultWord={setResultWord}
             />
-            <Mz resultWord={resultWord}/>
+            <Mz resultWord={resultWord} />
           </Main>
         )}
 
@@ -148,7 +146,7 @@ function Home() {
             <Sidebar />
           </ButtonContainer>
         )}
-        {isTranslated && <Meaning resultWord={resultWord}/>}
+        {isTranslated && <Meaning resultWord={resultWord} />}
       </Wrapper>
       <BottomBar
         isPC={isPC}
