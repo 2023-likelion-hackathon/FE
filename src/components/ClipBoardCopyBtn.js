@@ -19,7 +19,7 @@ function ClipboardCopyButton({ copiedText }) {
   const handleCopyClick = () => {
     clipboardCopy(copiedText)
       .then(() => {
-        alert("텍스트가 클립보드에 복사되었습니다.");
+        alert("결과가 클립보드에 복사되었습니다.");
       })
       .catch((error) => {
         console.error("클립보드 복사 실패", error);

@@ -9,13 +9,8 @@ export const result = async (result) => {
       return response.data;
     }
   } catch (error) {
-    if (error.response) {
-      const { status, data } = error.response;
-      if (status === 404 || status === 409) {
-        const errorMessage = data.message;
-        alert(errorMessage);
-      }
-    }
+    console.error("번역에러", error);
+    throw error;
   }
 };
 
