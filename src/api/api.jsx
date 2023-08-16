@@ -3,7 +3,7 @@ import axios from "axios";
 export const result = async (data) => {
   try {
     const response = await axios.post(
-      "https://mzero-server-dd99abc65c9c.herokuapp.com//translate",
+      "https://mzero-server-dd99abc65c9c.herokuapp.com/translate",
       data
     );
     if (response.status === 200) {
@@ -24,7 +24,7 @@ export const result = async (data) => {
 export const getSearchedData = async () => {
   try {
     const response = await axios.get(
-      "https://mzero-server-dd99abc65c9c.herokuapp.com//searched"
+      "https://mzero-server-dd99abc65c9c.herokuapp.com/searched"
     );
     return response.data;
   } catch (error) {
@@ -36,7 +36,7 @@ export const getSearchedData = async () => {
 export const deleteData = async () => {
   try {
     const response = await axios.get(
-      "https://mzero-server-dd99abc65c9c.herokuapp.com//clearSearched"
+      "https://mzero-server-dd99abc65c9c.herokuapp.com/clearSearched"
     );
     return response.data;
   } catch (error) {
