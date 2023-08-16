@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/FE/static/css/main.e45de8c7.css",
+    "main.js": "/FE/static/js/main.939d5119.js",
+    "static/js/787.6dc5d524.chunk.js": "/FE/static/js/787.6dc5d524.chunk.js",
+    "static/media/Tenada.woff": "/FE/static/media/Tenada.bcb8ea9411ea18babddc.woff",
+    "index.html": "/FE/index.html",
+    "main.e45de8c7.css.map": "/FE/static/css/main.e45de8c7.css.map",
+    "main.939d5119.js.map": "/FE/static/js/main.939d5119.js.map",
+    "787.6dc5d524.chunk.js.map": "/FE/static/js/787.6dc5d524.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e45de8c7.css",
+    "static/js/main.939d5119.js"
+  ]
+}
