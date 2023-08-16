@@ -44,8 +44,7 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://34.22.74.6:8080",
-  "homepage": "http://2023-likelion-hackathon.github.io/FE",
+  "proxy": "https://34.64.161.242:8443",
   "devDependencies": {
     "gh-pages": "^6.0.0"
   }
