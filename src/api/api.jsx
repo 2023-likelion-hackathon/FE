@@ -1,8 +1,19 @@
 import axios from "axios";
+import https from "https";
+
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+
+const instance = axios.create({
+  baseURL: "https://34.64.161.242:8443",
+  timeout: 120000,
+  httpsAgent: new https.Agent({
+    rejectUnauthorized: false,
+  }),
+});
 
 export const result = async (data) => {
   try {
-    const response = await axios.post(
+    const response = await instance.post(
       "https://34.64.161.242:8443/translate",
       data
     );
@@ -23,7 +34,7 @@ export const result = async (data) => {
 
 export const getSearchedData = async () => {
   try {
-    const response = await axios.get("https://34.64.161.242:8443/searched");
+    const response = await instance.get("https://34.64.161.242:8443/searched");
     return response.data;
   } catch (error) {
     console.error("에러", error);
@@ -33,7 +44,7 @@ export const getSearchedData = async () => {
 
 export const deleteData = async () => {
   try {
-    const response = await axios.get(
+    const response = await instance.get(
       "https://34.64.161.242:8443/clearSearched"
     );
     return response.data;
