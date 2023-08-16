@@ -2,7 +2,10 @@ import axios from "axios";
 
 export const result = async (data) => {
   try {
-    const response = await axios.post("http://34.22.74.6:8080/translate", data);
+    const response = await axios.post(
+      "https://34.64.161.242:8443/translate",
+      data
+    );
     if (response.status === 200) {
       return response;
     }
@@ -20,7 +23,7 @@ export const result = async (data) => {
 
 export const getSearchedData = async () => {
   try {
-    const response = await axios.get("http://34.22.74.6:8080/searched");
+    const response = await axios.get("https://34.64.161.242:8443/searched");
     return response.data;
   } catch (error) {
     console.error("에러", error);
@@ -30,7 +33,9 @@ export const getSearchedData = async () => {
 
 export const deleteData = async () => {
   try {
-    const response = await axios.get("http://34.22.74.6:8080/clearSearched");
+    const response = await axios.get(
+      "https://34.64.161.242:8443/clearSearched"
+    );
     return response.data;
   } catch (error) {
     const { status, data } = error.response;
