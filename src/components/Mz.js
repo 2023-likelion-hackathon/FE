@@ -47,7 +47,6 @@ function Mz({ resultWord }) {
       <Main>{resultWord.translatedWord}</Main>
       <ClipboardCopyButton copiedText={resultWord.translatedWord}>
         복사하기
-        {console.log(resultWord.translatedWord)};
       </ClipboardCopyButton>
     </Container>
   );
