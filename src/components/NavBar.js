@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import logo from "../img/logo.png";
 import { styled } from "styled-components";
 import Button from "./Button";

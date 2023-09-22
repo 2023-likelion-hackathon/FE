@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import facebook from "../img/Facebook.png";
 import instagram from "../img/Instagram.png";
 import copyright from "../img/Copyright.png";
-import { useMediaQuery } from "react-responsive";
 import { styled } from "styled-components";
 
 const Footer = styled.div`

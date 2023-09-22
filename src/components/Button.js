@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { styled } from "styled-components";
 import arrowRight from "../img/arrow_right.png";
 import arrowLeft from "../img/arrow_left.png";
